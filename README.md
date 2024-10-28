@@ -50,5 +50,7 @@ Desktop Qt %{Qt:Version} GCC 64bit
 设置完成后记得点击`Apply`和`OK`    
     
 ## 第三步：复制粘贴
+### QtCreator输入中文
 如果是按照上述操作来进行，并且操作系统环境与我一致，应该就可以直接复制我编译好的Fcitx动态库（.so）文件进行使用    
-
+将libfcitxplatforminputcontextplugin.so文件复制到/home/HBA/qtcreator-4.9.2/lib/Qt/plugins/platforminputcontexts/路径下  
+重新启动该QtCreator就可以输入中文了
