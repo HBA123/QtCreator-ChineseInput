@@ -53,12 +53,24 @@ Desktop Qt %{Qt:Version} GCC 64bit
 ### QtCreator输入中文
 如果是按照上述操作来进行，并且操作系统环境与我一致，应该就可以直接复制我编译好的Fcitx动态库（.so）文件进行使用    
 将`libfcitxplatforminputcontextplugin.so`文件复制到`/home/HBA/qtcreator-4.9.2/lib/Qt/plugins/platforminputcontexts/`路径下  
+
+打开终端，输入
+```
+chmod +x libfcitxplatforminputcontextplugin.so
+```
+设置可执行权限    
+
 重新启动该QtCreator就可以输入中文了（注意打开的是基于Qt5版本的QtCreator）  
 可以使用麒麟操作系统自带的`搜狗输入法`输入中文    
 
 ### Qt应用程序输入中文
 仅仅只是在QtCreator编译器里面还不行，需要在QtCreator编译好的Qt应用程序里面能输入中文才行    
 将`libfcitxplatforminputcontextplugin.so`文件复制到`/home/HBA/Qt/5.15.2/gcc_64/plugins/platforminputcontexts`路径下  
+打开终端，输入    
+```
+chmod +x libfcitxplatforminputcontextplugin.so
+```
+设置可执行权限    
 再次编译应用程序，即可在Qt应用程序中输入中文
 
 # Fcitx的编译
