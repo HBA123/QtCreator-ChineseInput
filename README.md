@@ -109,7 +109,7 @@ option(ENABLE_QT6 "Enable Qt6 im module" Off)
 option(ENABLE_LIBRARY "Qt library" On)
 ```
 ## 编译
-创建一个build目录，并且进入该目录
+在终端输入命令，创建一个build目录，并且进入该目录
 
     mkdir build && cd build
 
@@ -124,3 +124,35 @@ option(ENABLE_LIBRARY "Qt library" On)
 之后在`build`目录下的`/qt5/platforminputcontext`就有需要的`libfcitxplatforminputcontextplugin.so`插件动态库了。
     
 之后的操作与`第三步`相同。
+
+# 注意事项
+## 环境配置
+如果上述一系列操作都无法输入中文，可能需要设置环境变量    
+使用vim打开`/etc/profile`文件，在文件最后添加：
+```
+export XIM_PROGRAM=fcitx
+export XIM=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+```
+保存后关闭，重新启动QtCreator再试试
+
+## 依赖库出错
+如果在安装extra-cmake-modules或者libxkbcommon-x11-dev时出现错误，就需要自己去下载这些包的源码，自行编译安装
+
+### extra-cmake-modules（ECM缺失错误）
+安装`extra-cmake-modules`，即ECM 模块：下载该源码，解压后在其根目录下`/extra-cmake-modules/`，在该路径终端分别执行：
+```
+mkdir build && cd build
+cmake ../
+make
+sudo make install
+```
+### XKBCommon（缺失错误）
+先安装`bison`，再安装`XKBCommon`。下载`bison`和`libxkbcommon`源码，解压后，进入解压目录，在该路径终端***分别***执行
+```
+./configure
+make
+sudo make install
+```
